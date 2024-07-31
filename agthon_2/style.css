@@ -1,4 +1,29 @@
+* {
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.timetable-block .liberal-arts {
+    float: left;
+}
+
 .timetable {
     border-collapse: collapse;
     border: 1px solid gray;
+}
+
+.timetable>tbody>tr>th:first-child {
+    width: 50px;
+}
+
+.timetable>tbody>tr>th {
+    width: 30px;
+    height: 30px;
+}
+
+.liberal-arts>h4,
+.liberal-arts>ul {
+    margin: 0px;
 }
