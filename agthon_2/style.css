@@ -3,13 +3,17 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+
+    padding: 0px;
+    margin: 0px;
 }
 
 .timetable-block .liberal-arts {
     float: left;
 }
 
-.timetable {
+.timetable,
+#cartTable {
     border-collapse: collapse;
     border: 1px solid gray;
 }
