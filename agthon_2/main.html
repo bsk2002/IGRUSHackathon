@@ -13,9 +13,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 
-<body onload="updateCartTable()">
+<body onload="updateCartTable(); changeColor()">
+
+    <div class="liberal-arts">
+        <h4>핵심교양 영역표</h4>
+        <ul>
+            <li><a href=교양_영역1.html target="_blank">1영역</a></li>
+            <li><a href=교양_영역2.html target="_blank">2영역</a></li>
+            <li>3영역</li>
+            <li>4영역</li>
+            <li>5영역</li>
+        </ul>
+    </div>
+    <br><br>
     <div>
-        <button onclick="updateCartTable()">장바구니 새로고침</button>
+        <button onclick="updateCartTable(); changeColor()">장바구니 새로고침</button>
         <h4>장바구니에 추가된 과목들</h4>
         <table id="cartTable" border="1">
             <thead>
@@ -29,18 +41,6 @@
             </tbody>
         </table>
     </div>
-
-    <div class="liberal-arts">
-        <h4>핵심교양 영역표</h4>
-        <ul>
-            <li><a href=table1.html target="_blank">1영역</a></li>
-            <li>2영역</li>
-            <li>3영역</li>
-            <li>4영역</li>
-            <li>5영역</li>
-        </ul>
-    </div>
-    <br><br>
     <div class="timetable-block">
         <button onclick="changeColor()">입력</button>
         <button onclick="reset();updateCartTable()">복구</button>
@@ -167,6 +167,15 @@
             </tbody>
         </table>
     </div>
+
+
+    <select>
+        <option>컴퓨터공학과</option>
+        <option>전자</option>
+        <option>컴퓨터공학과</option>
+        <option>컴퓨터공학과</option>
+        <option>컴퓨터공학과</option>
+    </select>
 </body>
 
 </html>
