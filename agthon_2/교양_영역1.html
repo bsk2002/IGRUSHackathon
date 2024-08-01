@@ -12,6 +12,22 @@
             border-collapse: collapse;
             margin: 0 auto;
         }
+
+        #menu-box {
+            background-color: aquamarine;
+            width: 160px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        #menu-box>img {
+            display: none;
+        }
+
+        #menu-box>img {
+            display: block;
+        }
     </style>
 </head>
 
@@ -26,32 +42,46 @@
             <tr>
                 <td>나눔 프로젝트</td>
                 <td>
-                    <button class="Tuesday" value="16" onclick="tmpSubject(this);">시간표에 추가</button>
+                    <button data-times="[14,19,24]" onclick="tmpSubject(this);">시간표에
+                        추가</button>
                 </td>
                 <td>
-                    <a href="https://www.naver.com" target="_blank">강의계획서 조회
+                    <a href="https://www.naver.com"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;"">강의계획서 조회
                 </td>
             </tr>
             <tr>
                 <td>창의적 사고와 소통</td>
                 <td>
-                    <button class="Tuesday" value="22" onclick="tmpSubject(this)">시간표에 추가</button>
+                    <button data-times=" [15,20,25]" onclick="tmpSubject(this);">시간표에
+                        추가</button>
                 </td>
                 <td>
-                    <a href="https://www.naver.com" target="_blank">강의계획서 조회</a>
+                    <a href="https://www.naver.com"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;"">강의계획서 조회
                 </td>
             </tr>
             <tr>
                 <td>독서세미나 : 인간, 가치, 공존</td>
                 <td>
-                    <button class="Tuesday" value="28" onclick="tmpSubject(this)">시간표에 추가</button>
+                    <button data-times=" [32,37,42]" onclick="tmpSubject(this);">시간표에
+                        추가</button>
                 </td>
                 <td>
-                    <a href="https://www.naver.com" target="_blank">강의계획서 조회</a>
+                    <a href="https://www.naver.com"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;"">강의계획서 조회
                 </td>
             </tr>
             <tr>
                 <td>마음을 움직이는 리더쉽</td>
+                <td>
+                    <button data-times=" [33,35,42]" onclick="tmpSubject(this);">시간표에
+                        추가</button>
+                </td>
+                <td>
+                    <a href="https://www.naver.com"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;"">강의계획서 조회
+                </td>
             </tr>
             <tr>
                 <td>오래된 미래 : 동양고전에서의 인간다움</td>
@@ -71,6 +101,12 @@
         </tbody>
     </table>
 
+
+    <div>
+        <div id=" menu-box">이수체계도
+                        <img id="photo" src="inha_university.jpg">
+                        </div>
+                        </div>
 </body>
 
 </html>
