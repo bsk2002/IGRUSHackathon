@@ -15,15 +15,15 @@
 .timetable,
 #cartTable {
     border-collapse: collapse;
-    border: 1px solid gray;
+    border: 0px solid gray;
 }
 
 .timetable>tbody>tr>th:first-child {
     width: 50px;
 }
 
-.timetable>tbody>tr>th {
-    width: 30px;
+.timetable>tbody>tr>td {
+    width: 150px;
     height: 30px;
 }
 
