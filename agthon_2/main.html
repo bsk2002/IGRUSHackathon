@@ -12,10 +12,75 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
+<style>
+    details {
+        margin: 5px 0 10px;
+    }
+
+    details>summary {
+        background: #444;
+        color: #fff;
+        padding: 10px;
+        outline: 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.5s;
+        text-align: left;
+        box-shadow: 1px 1px 2px gray;
+    }
+
+    details>summary::-webkit-details-marker {
+        background: #444;
+        color: #fff;
+        background-size: contain;
+        transform: rotate3d(0, 0, 1, 90deg);
+        transition: transform 0.25s;
+    }
+
+    details[open]>summary::-webkit-details-marker {
+        transform: rotate3d(0, 0, 1, 180deg);
+    }
+
+    details[open]>summary {
+        background: #444;
+    }
+
+    details[open]>summary~* {
+        animation: reveal 0.5s;
+    }
+
+    .tpt {
+        background-color: #444;
+        margin: 5px 0 10px;
+        padding: 5px 10px;
+        line-height: 25px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 2px gray;
+    }
+
+    @keyframes reveal {
+        from {
+            opacity: 0;
+            transform: translate3d(0, -30px, 0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
 
 <body onload="updateCartTable(); changeColor()">
+    <div style="float: left; position: relative; z-index:5;">
+        <details>
+            <summary style="width:200px">Click Me!!!</summary>
+            <object class="tpt" data="컴공24.pdf" width="600" height="800px"></object>
+        </details>
 
-    <div class="liberal-arts">
+
+    </div>
+    <div class="liberal-arts" style="float:left">
         <h4>핵심교양 영역표</h4>
         <ul>
             <li><a href=교양_영역1.html target="_blank">1영역</a></li>
@@ -29,11 +94,15 @@
     <div>
         <button onclick="updateCartTable(); changeColor()">장바구니 새로고침</button>
         <h4>장바구니에 추가된 과목들</h4>
-        <table id="cartTable" border="1">
-            <thead>
+        <table id="cartTable" border="1" style="border:1px solid gray; border-collapse: collapse;">
+            <thead style="width:150px;height:40px;">
                 <tr>
-                    <th>과목명</th>
-                    <th>시간</th>
+                    <th>년도학기</th>
+                    <th>학수번호</th>
+                    <th>교과목명</th>
+                    <th>교수명</th>
+                    <th>시간 및 강의실</th>
+                    <th>장바구니에서 제거</th>
                 </tr>
             </thead>
             <tbody id="cartTableBody">
@@ -41,9 +110,8 @@
             </tbody>
         </table>
     </div>
-    <div class="timetable-block">
-        <button onclick="changeColor()">입력</button>
-        <button onclick="reset();updateCartTable()">복구</button>
+    <div class="timetable-block" style="float:right;">
+        <button onclick="reset();updateCartTable()">전체삭제</button>
 
         <table class="timetable" id="mytable" border="1">
             <thead>
@@ -255,15 +323,6 @@
             </tbody>
         </table>
     </div>
-
-
-    <select>
-        <option>컴퓨터공학과</option>
-        <option>전자</option>
-        <option>컴퓨터공학과</option>
-        <option>컴퓨터공학과</option>
-        <option>컴퓨터공학과</option>
-    </select>
 </body>
 
 </html>
