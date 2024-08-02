@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="style.css" rel="stylesheet">
     <script src="script.js"></script>
-
+    <script src="scriptfortest.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="stylefortest.css" rel="stylesheet">
 </head>
 <style>
     details {
@@ -109,6 +110,23 @@
                 <!-- 장바구니 과목 리스트 -->
             </tbody>
         </table>
+    </div>
+    <div class="test">
+        <select id="bad" onchange="categoryChange(this)">
+            <optgroup label="공과대학">
+                <option>학과를 선택해주세요</option>
+                <option value="a">컴퓨터공학과</option>
+                <option value="b">정보통신공학과</option>
+                <option value="c">전자공학과</option>
+            </optgroup>
+        </select>
+
+        <select id="good" onchange="gotoSite()">
+            <option>학번을 선택해주세요</option>
+            <option> 22학번</option>
+            <option> 23학번</option>
+            <option> 24학번</option>
+        </select>
     </div>
     <div class="timetable-block" style="float:right;">
         <button onclick="reset();updateCartTable()">전체삭제</button>
