@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <style>
+        body {
+            background-image: url('inhapo.jpg'); /* 배경 이미지 경로 */
+            background-size: cover; /* 이미지를 화면 크기에 맞게 조정 */
+            background-position: center; /* 이미지를 가운데에 위치 */
+            background-repeat: no-repeat; /* 이미지 반복 없음 */
+            margin: 0; /* 페이지 여백 제거 */
+        }
+        h1, form {
+            background-color: rgba(255, 255, 255, 0.8); /* 흰색 반투명 배경 */
+            padding: 20px; /* 패딩 추가 */
+            border-radius: 10px; /* 둥근 모서리 */
+            margin: 20px; /* 상하좌우 여백 추가 */
+            max-width: 400px; /* 최대 너비 설정 */
+            margin: 20px auto; /* 가운데 정렬 */
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px; /* 레이블과 입력창 간의 여백 */
+        }
+        form input {
+            display: block;
+            width: 80%; /* 입력창 너비 축소 */
+            margin-bottom: 10px;
+            padding: 10px; /* 입력창의 패딩 */
+            border-radius: 5px; /* 입력창 모서리 둥글게 */
+            border: 1px solid #ccc; /* 입력창 테두리 색상 */
+        }
+        form button {
+            display: inline-block;
+            width: 45%; /* 버튼 길이 축소 */
+            margin: 5px 2.5%; /* 버튼 사이의 간격 설정 */
+            padding: 10px; /* 버튼 높이 패딩 */
+            background-color: #87CEEB; /* 하늘색 배경 */
+            border: none; /* 테두리 제거 */
+            border-radius: 5px; /* 둥근 모서리 */
+            color: white; /* 텍스트 색상 */
+            font-size: 16px; /* 글자 크기 */
+            cursor: pointer; /* 포인터 커서 */
+        }
+        form button:hover {
+            background-color: #00BFFF; /* 버튼 호버 시 색상 변경 */
+        }
+        #registerForm {
+            display: none; /* 기본적으로 숨김 */
+        }
+    </style>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form id="loginForm">
+        <label for="loginId">아이디:</label>
+        <input type="text" id="loginId" required>
+        <br>
+        <label for="loginPassword">비밀번호:</label>
+        <input type="password" id="loginPassword" required>
+        <br>
+        <button type="button" onclick="login()">로그인</button>
+        <button type="button" onclick="toggleRegisterForm()">회원가입</button>
+    </form>
+
+    <form id="registerForm">
+        <h1>회원가입</h1>
+        <label for="registerId">아이디:</label>
+        <input type="text" id="registerId" required>
+        <button type="button" onclick="checkId()">아이디 중복 확인</button>
+        <br>
+        <label for="registerPassword">비밀번호:</label>
+        <input type="password" id="registerPassword" required>
+        <br>
+        <button type="button" onclick="register()">회원가입</button>
+    </form>
+
+    <script>
+        // 현재 존재하는 사용자 목록
+        let users = [
+            { id: "dlwjdtn1112", password: "123" },
+            { id: "user2", password: "password2" }
+        ];
+
+        // 중복 확인 상태 변수
+        let isIdAvailable = false;
+
+        // 로그인 기능
+        function login() {
+            const loginId = document.getElementById('loginId').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+
+            const user = users.find(user => user.id === loginId && user.password === loginPassword);
+
+            if (user) {
+                alert('로그인 성공!');
+                window.location.href = 'https://www.naver.com/';
+            } else {
+                alert('아이디 또는 비밀번호가 잘못되었습니다.');
+            }
+        }
+
+        // 회원가입 폼 표시/숨김 기능
+        function toggleRegisterForm() {
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm.style.display === 'none' || registerForm.style.display === '') {
+                registerForm.style.display = 'block';
+            } else {
+                registerForm.style.display = 'none';
+            }
+        }
+
+        // 회원가입 기능
+        function register() {
+            const registerId = document.getElementById('registerId').value;
+            const registerPassword = document.getElementById('registerPassword').value;
+
+            if (!isIdAvailable) {
+                alert('아이디 중복 확인을 먼저 해주세요.');
+            } else if (registerId.trim() === "" || registerPassword.trim() === "") {
+                alert('아이디와 비밀번호를 모두 입력해 주세요.');
+            } else {
+                const existingUser = users.find(user => user.id === registerId);
+                if (existingUser) {
+                    alert('이미 존재하는 아이디입니다.');
+                } else {
+                    users.push({ id: registerId, password: registerPassword });
+                    alert('회원가입이 완료되었습니다.');
+                    document.getElementById('registerForm').reset();
+                    isIdAvailable = false;
+                    toggleRegisterForm(); // 회원가입 후 폼 숨기기
+                }
+            }
+        }
+
+        // 아이디 중복 확인 기능
+        function checkId() {
+            const registerId = document.getElementById('registerId').value;
+
+            const existingUser = users.find(user => user.id === registerId);
+
+            if (existingUser) {
+                alert('이미 존재하는 아이디입니다.');
+                isIdAvailable = false;
+            } else if (registerId.trim() === "") {
+                alert('아이디를 입력해 주세요.');
+                isIdAvailable = false;
+            } else {
+                alert('사용 가능한 아이디입니다.');
+                isIdAvailable = true;
+            }
+        }
+    </script>
+</body>
+</html>
