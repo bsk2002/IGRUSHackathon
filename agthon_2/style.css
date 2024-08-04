@@ -51,6 +51,10 @@
     height: 100%;
 }
 
+#cartTable>table>thead>tr>td {
+    width: 1
+}
+
 .timetable>tbody>tr>th:first-child {
     width: 50px;
 }
