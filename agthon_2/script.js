@@ -1,6 +1,13 @@
-let colorArr = ["#167288", "#8cdaec", "#b45248", "#d48c84", "#a89a49", "#d6cfa2", "#3cb464", "#9bddb1", "#643c6a", "#836394"];
 let week = ["월", "화", "수", "목", "금"];
-let count = 0;
+
+function getRandomColor() {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 function changeColor() {
     let p = document.getElementById("mytable").getElementsByTagName("td");
@@ -105,7 +112,7 @@ function tmpSubject(e) {
     }
 
 
-    let subject = { subYear: year, num: subjectNum, prof: professor, name: subjectName, value: resultTimes, valuestr: daystr, color: colorArr[++count % 10] };
+    let subject = { subYear: year, num: subjectNum, prof: professor, name: subjectName, value: resultTimes, valuestr: daystr, color: getRandomColor() };
 
     // 값이 배열에 포함되어 있는지 확인
     let isTimeConflict = tmpSubjectArrValue.some(item => {
