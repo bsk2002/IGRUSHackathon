@@ -1,64 +1,108 @@
-* {
-    font-family: "Noto Sans KR", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-
-    margin: 0px;
-    padding: 0px;
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.logo {
-    width: 1280px;
-    height: 68px;
+.header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.test {
-    margin-bottom: 34px;
+.header img {
+    height: 60px;
 }
 
-.test>h3 {
-    margin-top: 34px;
+.header h1 {
+    margin: 10px 0 0 0;
+    font-size: 24px;
+    color: #0056a1;
 }
 
 .container {
     width: 1280px;
-    text-align: center;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+h3 {
+    color: #1E90FF;
+    margin-bottom: 10px;
+}
+
+.menu,
+.cart,
 .timetable-block {
-    width: 600px;
-    height: 780px;
-    float: right;
+    margin-bottom: 20px;
 }
 
-.menu {
-    width: 600px;
-    height: 820px;
-    float: left;
+select,
+button {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.liberal-arts {
-    float: left;
+button {
+    background-color: #87CEEB;
+    color: white;
+    cursor: pointer;
 }
 
-.timetable,
-#cartTable {
+button:hover {
+    background-color: #1E90FF;
+}
+
+table {
+    width: 100%;
     border-collapse: collapse;
-    border: 0px solid gray;
-    padding: 3px;
-    height: 100%;
+    margin-bottom: 20px;
 }
 
-.timetable>tbody>tr>th:first-child {
-    width: 50px;
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
-.timetable>tbody>tr>td {
-    width: 150px;
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
 }
 
-.liberal-arts>ul {
-    margin: 0px;
+.cart-timetable-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-container,
+.timetable-block {
+    width: 48%;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu .test {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
