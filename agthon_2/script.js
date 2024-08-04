@@ -71,9 +71,11 @@ function tmpSubject(e) {
 
     let year = childList[0].innerText;
     let subjectNum = childList[1].innerText;
-    let professor = childList[5].innerText;
+    let professor = childList[6].innerText;
     let subjectName = childList[2].getElementsByTagName("a")[0].innerText;
-    let daystr = childList[4].innerText;
+    let point = childList[3].innerText;
+    let major = childList[4].innerText;
+    let daystr = childList[5].innerText;
     let times = new Array();
     let days = new Array();
     let timestr = daystr.split("/");
@@ -120,7 +122,7 @@ function tmpSubject(e) {
     }
 
 
-    let subject = { subYear: year, num: subjectNum, prof: professor, name: subjectName, value: resultTimes, valuestr: daystr, color: getRandomColor() };
+    let subject = { subYear: year, num: subjectNum, prof: professor, point: point, major: major, name: subjectName, value: resultTimes, valuestr: daystr, color: getRandomColor() };
 
     // 값이 배열에 포함되어 있는지 확인
     let isTimeConflict = tmpSubjectArrValue.some(item => {
@@ -164,6 +166,8 @@ function displayCartSubjects() {
         let yearCell = document.createElement("td");
         let numCell = document.createElement("td")
         let profCell = document.createElement("td");
+        let majorCell = document.createElement("td");
+        let pointCell = document.createElement("td");
         let nameCell = document.createElement("td");
         let timeCell = document.createElement("td");
         let buttonCell = document.createElement("td");
@@ -173,16 +177,38 @@ function displayCartSubjects() {
         profCell.textContent = subject.prof;
         nameCell.textContent = subject.name;
         timeCell.textContent = subject.valuestr;
+        majorCell.textContent = subject.major;
+        pointCell.textContent = subject.point;
 
         row.appendChild(yearCell);
         row.appendChild(numCell);
         row.appendChild(nameCell);
+        row.appendChild(pointCell);
+        row.appendChild(majorCell);
         row.appendChild(profCell);
         row.appendChild(timeCell);
         row.appendChild(buttonCell);
         cartTableBody.appendChild(row);
-        buttonCell.innerHTML = '<button onclick="' + "resetThis(this);" + '">제거</button>'
+        buttonCell.innerHTML = '<button onclick="' + "resetThis(this);updateResult();" + '">제거</button>'
 
         row.style.backgroundColor = subject.color;
     });
+}
+
+function updateResult() {
+    let p = document.getElementById("cartTableBody").getElementsByTagName("tr")
+    let a = 0;
+    let b = 0;
+    let result = 0;
+    for (let i = 0; i < p.length; i++) {
+        let tmp = p[i].getElementsByTagName("td");
+        if (tmp[4].innerText.includes("교양")) {
+            a += parseInt(tmp[3].innerText);
+        } else if (tmp[4].innerText.includes("전공")) {
+            b += parseInt(tmp[3].innerText);
+        }
+        result += parseInt(tmp[3].innerText);
+    }
+    let str = "교양 : " + a + "학점 / 전공 : " + b + "학점 / 총합 : " + result + "학점";
+    document.getElementById("sum").innerText = str;
 }
