@@ -8,6 +8,7 @@ div.shortcuts {
 }
 
 div.shortcuts select {
+    font-family: 'Noto Sans KR', sans-serif;
     width: 190px;
     margin-right: 5px;
     padding: 0px 0px 0px 5px;
@@ -21,11 +22,11 @@ div.shortcuts select {
 }
 
 div.shortcuts a {
+    font-family: 'Noto Sans KR', sans-serif;
     background: #446ec6;
     color: #fff;
     font-size: 0.9em;
     padding: 0px 7px;
-    font-weight: bold;
     text-decoration-line: none;
     height: 32px;
     line-height: 32px;
