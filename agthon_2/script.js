@@ -119,10 +119,10 @@ function tmpSubject(e) {
     let isNameConflict = tmpSubjectArrValue.some(item => {
         return item.name.includes(subjectName)
     })
-    if (isTimeConflict) {
-        alert("강의 시간이 겹칩니다.")
-    } else if (isNameConflict) {
+    if (isNameConflict) {
         alert("이미 추가된 과목입니다.");
+    } else if (isTimeConflict) {
+        alert("강의 시간이 겹칩니다.")
     } else {
         tmpSubjectArrValue.push(subject);
         localStorage.setItem("tmpSubjectArrValue", JSON.stringify(tmpSubjectArrValue));
