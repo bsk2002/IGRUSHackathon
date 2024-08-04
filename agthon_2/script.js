@@ -1,12 +1,17 @@
 let week = ["월", "화", "수", "목", "금"];
-
+let colors = ["#167288", "#8cdaec", "#b45248", "#d48c84", "#a89a49", "#d6cfa2", "#3cb464", "#9bddb1", "#643c6a", "#836394"];
 function getRandomColor() {
-    let letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+    let tmpSubjectArrValue = JSON.parse(localStorage.getItem("tmpSubjectArrValue")) || [];
+
+    let index = new Array();
+    for (let i = 0; i < tmpSubjectArrValue.length; i++) {
+        if (colors.includes(tmpSubjectArrValue[i].color)) {
+            index.push(colors.indexOf(tmpSubjectArrValue[i].color))
+        }
     }
-    return color;
+
+    alert(index[0]);
+    return index;
 }
 
 function changeColor() {
@@ -19,6 +24,7 @@ function changeColor() {
             }
         }
     }
+
 }
 
 function reset() {
