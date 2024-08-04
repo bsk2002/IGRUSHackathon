@@ -94,8 +94,9 @@ function tmpSubject(e) {
                 days.push(week.indexOf(thistime[j][0]));
                 times.push(thistime[j].substr(1, thistime[j].length - 1));
                 continue;
-            } else if (thistime[j] == "셀0(웹강의)") {
-                tmparr.push("셀0(웹강의)");
+            } else if (thistime[j].includes("셀")) {
+                tmparr.push(140);
+                alert(tmparr);
                 break;
             }
             times.push(thistime[j]);
