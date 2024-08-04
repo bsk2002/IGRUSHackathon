@@ -103,7 +103,6 @@ function tmpSubject(e) {
                 continue;
             } else if (thistime[j].includes("셀")) {
                 tmparr.push(140);
-                alert(tmparr);
                 break;
             }
             times.push(thistime[j]);
