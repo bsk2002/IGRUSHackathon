@@ -1,29 +1,118 @@
 <!doctype html>
-<html>
+<html lang="ko">
+
 <head>
-  <title>WEB1 - Welcome</title>
-  <meta charset="utf-8">
-  <script src="script.js"></script>
+    <meta charset="utf-8">
+    <title>시스템프로그래밍</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('inhapo.jpg'); /* 배경 이미지 경로 */
+            background-size: cover; /* 이미지를 화면 크기에 맞게 조정 */
+            background-position: center; /* 이미지를 가운데에 위치 */
+            background-repeat: no-repeat; /* 이미지 반복 없음 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.541); /* 흰색 반투명 배경 */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header img {
+            width: 100px;
+            height: auto;
+        }
+
+        .timetable {
+            width: 80%;
+            max-width: 1200px; /* 최대 너비를 더 크게 설정 */
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9); /* 표를 살짝 투명하게 만듦 */
+            margin-bottom: 20px; /* 하단 여백 추가 */
+        }
+
+        .timetable thead {
+            background-color: #1E90FF;
+            color: #fff;
+        }
+
+        .timetable th,
+        .timetable td {
+            padding: 15px; /* 셀 패딩을 더 크게 설정 */
+            text-align: left;
+            font-size: 16px; /* 글자 크기 증가 */
+        }
+
+        .timetable th {
+            text-transform: uppercase;
+        }
+
+        .timetable tbody tr:nth-child(even) {
+            background-color: rgba(245, 245, 245, 0.9); /* 짝수 행의 배경색을 살짝 투명하게 설정 */
+        }
+
+        .timetable tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.9); /* 홀수 행의 배경색을 살짝 투명하게 설정 */
+        }
+
+        .timetable tbody tr:hover {
+            background-color: rgba(230, 230, 230, 0.9); /* 마우스 오버 시 배경색 변경 */
+        }
+
+        .timetable a {
+            color: #1E90FF;
+            text-decoration: none;
+        }
+
+        .timetable a:hover {
+            text-decoration: underline;
+        }
+
+        .timetable button {
+            padding: 10px 20px; /* 버튼 크기 증가 */
+            background-color: #1E90FF;
+            border: none;
+            border-radius: 5px; /* 버튼 모서리를 둥글게 설정 */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .timetable button:hover {
+            background-color: #1C86EE;
+        }
+    </style>
+    <script src="script.js"></script>
 </head>
+
 <body>
+    <div class="header">
+        <h1>Inha University Timetable</h1>
+    </div>
+
     <table class="timetable" id="mytable" border="1">
         <thead>
             <tr>
-                <th>년도학기 </th>
-                <th>학수번호 </th>
-            
-                <th>교과목명 </th>
+                <th>년도학기</th>
+                <th>학수번호</th>
+                <th>교과목명</th>
                 <th>학점</th>
                 <th>과목구분</th>
                 <th>시간 및 강의실</th>
-                <th>교수명 </th>
+                <th>교수명</th>
                 <th>개설전공</th>
                 <th>장바구니</th>
-               
             </tr>
         </thead>
-      
-        <tbody>    
+        <tbody>
             <tr>
                 <td>2024-2</td>
                 <td>CSE3209-001</td>
@@ -33,9 +122,7 @@
                 <td>화13,14,15,목13,14,15(하-222)</td>
                 <td>정진만</td>
                 <td>컴퓨터공학</td>
-                <td><button onclick="tmpSubject(this);">
-                        추가</button></td>
-
+                <td><button onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
@@ -46,9 +133,7 @@
                 <td>화16,17,18,목7,8,9(하-222)</td>
                 <td>정진만</td>
                 <td>컴퓨터공학</td>
-                <td><button onclick="tmpSubject(this);">
-                        추가</button></td>
-
+                <td><button onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
@@ -59,9 +144,7 @@
                 <td>화7,8,9,목7,8,9(하-001)</td>
                 <td>이어진</td>
                 <td>컴퓨터공학</td>
-                <td><button onclick="tmpSubject(this);">
-                        추가</button></td>
-
+                <td><button onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
@@ -72,9 +155,7 @@
                 <td>화1,2,3,목1,2,3(하-222)</td>
                 <td>이선우</td>
                 <td>컴퓨터공학</td>
-                <td><button onclick="tmpSubject(this);">
-                        추가</button></td>
-
+                <td><button onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
@@ -85,11 +166,10 @@
                 <td>화10,11,12(하-001) /목10,11,12(하-120)</td>
                 <td>이선우</td>
                 <td>컴퓨터공학</td>
-                <td><button onclick="tmpSubject(this);">
-                        추가</button></td>
-
+                <td><button onclick="tmpSubject(this);">추가</button></td>
             </tr>
         </tbody>
     </table>
 </body>
+
 </html>
