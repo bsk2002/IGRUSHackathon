@@ -6,12 +6,13 @@ function getRandomColor() {
     let index = new Array();
     for (let i = 0; i < tmpSubjectArrValue.length; i++) {
         if (colors.includes(tmpSubjectArrValue[i].color)) {
-            index.push(colors.indexOf(tmpSubjectArrValue[i].color))
+            index.push(tmpSubjectArrValue[i].color)
         }
     }
 
-    alert(index[0]);
-    return index;
+    const set2 = new Set(index);
+    let differs = colors.filter(value => !set2.has(value));
+    return differs[0];
 }
 
 function changeColor() {
