@@ -7,7 +7,9 @@ function changeColor() {
     let tmpSubjectArrValue = JSON.parse(localStorage.getItem("tmpSubjectArrValue")) || [];
     for (let i = 0; i < tmpSubjectArrValue.length; i++) {
         for (let j = 0; j < tmpSubjectArrValue[i].value.length; j++) {
-            p[tmpSubjectArrValue[i].value[j]].style.backgroundColor = tmpSubjectArrValue[i].color;
+            for (let k = 0; k < tmpSubjectArrValue[i].value[j].length; k++) {
+                p[tmpSubjectArrValue[i].value[j][k]].style.backgroundColor = tmpSubjectArrValue[i].color;
+            }
         }
     }
 }
@@ -36,7 +38,8 @@ function resetThis(e) {
         index++;
     }
     for (let i = 0; i < tmpSubjectArrValue[index].value.length; i++) {
-        p[tmpSubjectArrValue[index].value[i]].style.backgroundColor = "";
+        for (let j = 0; j < tmpSubjectArrValue[index].value[i].length; j++)
+            p[tmpSubjectArrValue[index].value[i][j]].style.backgroundColor = "";
     }
 
     let removeThis = e.parentNode.parentNode;
@@ -59,56 +62,72 @@ function tmpSubject(e) {
     let times = new Array();
     let days = new Array();
     let timestr = daystr.split("/");
-    for (let i = 0; i < timestr.length; i++) {
-        let tmp = 0;
-        for (let j = 0; j < 5; j++) {
-            if (timestr[i][0] == week[j]) {
-                tmp = j;
-                break;
-            }
-        }
-        timestr[i] = timestr[i].substring(1, timestr[i].indexOf('('));
-        tmpstr = timestr[i].split(",");
-        let tmptimes = new Array;
-        for (let j = 0; j < tmpstr.length; j++) {
-            tmptimes.push(tmpstr[j]);
-        }
-        times.push(tmptimes);
-        days.push(tmp);
-    }
-
     let resultTimes = new Array();
 
-    for (let i = 0; i < times.length; i++) {
-        for (let j = 0; j < times[i].length; j++) {
-            resultTimes.push(days[i] + (times[i][j] - 1) * 5);
+    for (let i = 0; i < timestr.length; i++) {
+        let t = timestr[i].substring(0, timestr[i].indexOf("("));
+
+        let thistime = t.split(",");
+        let counter = 0;
+        let tmparr = new Array();
+
+        for (let j = 0; j < thistime.length; j++) {
+            if (week.includes(thistime[j][0])) {
+                counter++;
+                if (counter == 2) {
+                    for (let k = 0; k < times.length; k++) {
+                        tmparr.push(parseInt(days[0] + (times[k] - 1) * 5));
+                    }
+                    resultTimes.push(tmparr);
+                    counter = 1;
+                    times.length = 0;
+                    days.length = 0;
+                }
+                days.push(week.indexOf(thistime[j][0]));
+                times.push(thistime[j].substr(1, thistime[j].length - 1));
+                continue;
+            } else if (thistime[j] == "셀0(웹강의)") {
+                tmparr.push("셀0(웹강의)");
+                break;
+            }
+            times.push(thistime[j]);
+        }
+
+        if (times.length > 0) {
+            for (let k = 0; k < times.length; k++) {
+                tmparr.push(days[0] + (times[k] - 1) * 5);
+            }
+            resultTimes.push(tmparr);
+            counter = 1;
+            times.length = 0;
+            days.length = 0;
         }
     }
+
 
     let subject = { subYear: year, num: subjectNum, prof: professor, name: subjectName, value: resultTimes, valuestr: daystr, color: colorArr[++count % 10] };
 
     // 값이 배열에 포함되어 있는지 확인
     let isTimeConflict = tmpSubjectArrValue.some(item => {
-        if (Array.isArray(item.value)) {
-            return item.value.some(time => resultTimes.includes(time));
-        }
-        return false;
+        return item.value.some(timeArray => {
+            return timeArray.some(time => {
+                return resultTimes.flat().includes(time);
+            });
+        });
     });
 
     let isNameConflict = tmpSubjectArrValue.some(item => {
         return item.name.includes(subjectName)
     })
-    if (!isTimeConflict) {
+    if (isTimeConflict) {
+        alert("강의 시간이 겹칩니다.")
+    } else if (isNameConflict) {
+        alert("이미 추가된 과목입니다.");
+    } else {
         tmpSubjectArrValue.push(subject);
         localStorage.setItem("tmpSubjectArrValue", JSON.stringify(tmpSubjectArrValue));
         alert("장바구니에 정상적으로 추가되었습니다. 확인을 위해 '장바구니 새로고침' 버튼을 눌러주세요");
         updateCartTable(); // 실시간 업데이트 호출
-    } else if (!isNameConflict) {
-        {
-            alert("강의 시간이 겹칩니다.")
-        }
-    } else {
-        alert("이미 추가된 과목입니다.");
     }
 }
 
@@ -147,7 +166,7 @@ function displayCartSubjects() {
         row.appendChild(timeCell);
         row.appendChild(buttonCell);
         cartTableBody.appendChild(row);
-        buttonCell.innerHTML = "<button onclick=" + "resetThis(this);" + ">제거</button>"
+        buttonCell.innerHTML = '<button onclick="' + "resetThis(this);" + '">제거</button>'
 
         row.style.backgroundColor = subject.color;
     });

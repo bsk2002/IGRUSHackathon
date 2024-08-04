@@ -14,84 +14,10 @@
     <link href="stylefortest.css" rel="stylesheet">
 </head>
 <style>
-    details {
-        margin: 5px 0 10px;
-    }
 
-    details>summary {
-        background: #444;
-        color: #fff;
-        padding: 10px;
-        outline: 0;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.5s;
-        text-align: left;
-        box-shadow: 1px 1px 2px gray;
-    }
-
-    details>summary::-webkit-details-marker {
-        background: #444;
-        color: #fff;
-        background-size: contain;
-        transform: rotate3d(0, 0, 1, 90deg);
-        transition: transform 0.25s;
-    }
-
-    details[open]>summary::-webkit-details-marker {
-        transform: rotate3d(0, 0, 1, 180deg);
-    }
-
-    details[open]>summary {
-        background: #444;
-    }
-
-    details[open]>summary~* {
-        animation: reveal 0.5s;
-    }
-
-    .tpt {
-        background-color: #444;
-        margin: 5px 0 10px;
-        padding: 5px 10px;
-        line-height: 25px;
-        border-radius: 5px;
-        box-shadow: 1px 1px 2px gray;
-    }
-
-    @keyframes reveal {
-        from {
-            opacity: 0;
-            transform: translate3d(0, -30px, 0);
-        }
-
-        to {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-        }
-    }
 </style>
 
 <body onload="updateCartTable(); changeColor()">
-    <div style="float: left; position: relative; z-index:5;">
-        <details>
-            <summary style="width:200px">Click Me!!!</summary>
-            <object class="tpt" data="컴공24.pdf" width="600" height="800px"></object>
-        </details>
-
-
-    </div>
-    <div class="liberal-arts" style="float:left">
-        <h4>핵심교양 영역표</h4>
-        <ul>
-            <li><a href=교양_영역1.html target="_blank">1영역</a></li>
-            <li><a href=교양_영역2.html target="_blank">2영역</a></li>
-            <li>3영역</li>
-            <li>4영역</li>
-            <li>5영역</li>
-        </ul>
-    </div>
-    <br><br>
     <div>
         <button onclick="updateCartTable(); changeColor()">장바구니 새로고침</button>
         <h4>장바구니에 추가된 과목들</h4>
