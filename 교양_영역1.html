@@ -1,46 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
-    <link href="style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>수강신청</title>
     <style>
-        table {
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-image: url('inhapo.jpg'); /* 배경 이미지 경로 */
+            background-size: cover; /* 이미지를 화면 크기에 맞게 조정 */
+            background-position: center; /* 이미지를 가운데에 위치 */
+            background-repeat: no-repeat; /* 이미지 반복 없음 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
             text-align: center;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.541); /* 흰색 반투명 배경 */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header img {
+            width: 100px;
+            height: auto;
+        }
+
+        .timetable {
+            width: 80%;
+            max-width: 1200px; /* 최대 너비를 더 크게 설정 */
             border-collapse: collapse;
-            margin: 0 auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9); /* 표를 살짝 투명하게 만듦 */
+            margin-bottom: 20px; /* 하단 여백 추가 */
         }
 
-        #menu-box {
-            background-color: aquamarine;
-            width: 160px;
-            height: 100px;
-            line-height: 100px;
-            text-align: center;
+        .timetable thead {
+            background-color: #1E90FF;
+            color: #fff;
         }
 
-        #menu-box>img {
-            display: none;
+        .timetable th,
+        .timetable td {
+            padding: 15px; /* 셀 패딩을 더 크게 설정 */
+            text-align: left;
+            font-size: 16px; /* 글자 크기 증가 */
         }
 
-        #menu-box>img {
-            display: block;
+        .timetable th {
+            text-transform: uppercase;
+        }
+
+        .timetable tbody tr:nth-child(even) {
+            background-color: rgba(245, 245, 245, 0.9); /* 짝수 행의 배경색을 살짝 투명하게 설정 */
+        }
+
+        .timetable tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.9); /* 홀수 행의 배경색을 살짝 투명하게 설정 */
+        }
+
+        .timetable tbody tr:hover {
+            background-color: rgba(230, 230, 230, 0.9); /* 마우스 오버 시 배경색 변경 */
+        }
+
+        .timetable a {
+            color: #1E90FF;
+            text-decoration: none;
+        }
+
+        .timetable a:hover {
+            text-decoration: underline;
+        }
+
+        .timetable button {
+            padding: 10px 20px; /* 버튼 크기 증가 */
+            background-color: #1E90FF;
+            border: none;
+            border-radius: 5px; /* 버튼 모서리를 둥글게 설정 */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .timetable button:hover {
+            background-color: #1C86EE;
         }
     </style>
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <table border="1">
+    <div class="header">
+        <!--<img src="inha_logo.jpeg" alt="Inha University Logo">-->
+        <h1>Inha University Timetable</h1>
+    </div>
+
+    <table class="timetable" id="mytable" border="1">
         <thead>
-            <tr>
-                <th colspan="8">1영역</td>
-            </tr>
             <tr>
                 <th>년도학기</th>
                 <th>학수번호</th>
@@ -61,199 +121,133 @@
                         onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">나눔 프로젝트</a>
                 </td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>화13,14,15,16,17,18(60주년-508)</td>
                 <td>이경자</td>
                 <td>프런티어학부대학</td>
                 <td>
-                    <button onclick="tmpSubject(this);">
-                        추가</button>
+                    <button onclick="tmpSubject(this);">추가</button>
                 </td>
-
             </tr>
             <tr>
                 <td>2024-2</td>
                 <td>GED1006-001</td>
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAMKv9dR5VqugNFMr2N7zEh434qra28aojv1TX84ub0kw%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">창의적 사고와 소통
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAMKv9dR5VqugNFMr2N7zEh434qra28aojv1TX84ub0kw%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">창의적 사고와 소통</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>화13,14,15,목13,14,15(60주년-610)</td>
                 <td>윤인현</td>
                 <td>프런티어학부대학</td>
                 <td>
-                    <button onclick="tmpSubject(this);">
-                        추가</button>
+                    <button onclick="tmpSubject(this);">추가</button>
                 </td>
-
             </tr>
             <tr>
                 <td>2024-2</td>
                 <td>GED1007-001</td>
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAMKv9dR5VqukQBg%2fO%2fzlnl4MM6wvJYKy8YEMpDeQloeg%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">독서세미나 : 인간,
-                        가치, 공존
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAMKv9dR5VqukQBg%2fO%2fzlnl4MM6wvJYKy8YEMpDeQloeg%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">독서세미나 : 인간, 가치, 공존</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>수10,11,12,목10,11,12(60주년-502)</td>
                 <td>테리로즈</td>
                 <td>프런티어학부대학</td>
-                <td>
-                    <button data-times=" [32,37,42]" onclick="tmpSubject(this);">
-                        추가</button>
-                </td>
-
+                <td><button data-times=" [32,37,42]" onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
                 <td>GED1007-002</td>
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAMKv9dR5VqujsIxHuFwXJd4xoytXk1owSsCwItpWfDKg%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">독서세미나 : 인간,
-                        가치, 공존
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAMKv9dR5VqujsIxHuFwXJd4xoytXk1owSsCwItpWfDKg%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">독서세미나 : 인간, 가치, 공존</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>월4,5,6,수10,11,12(60주년-609)</td>
                 <td>김명임</td>
                 <td>프런티어학부대학</td>
-                <td>
-                    <button data-times=" [32,37,42]" onclick="tmpSubject(this);">
-                        추가</button>
-                </td>
-
+                <td><button data-times=" [32,37,42]" onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
                 <td>GED1009-001</td>
-
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAMKv9dR5VqukYAKlDxLW0isCLKLxXqPJjonQ3TUkXDpg%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">마음을 움직이는 리더쉽
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAMKv9dR5VqukYAKlDxLW0isCLKLxXqPJjonQ3TUkXDpg%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">마음을 움직이는 리더쉽</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>셀1(웹강의)</td>
                 <td>김성건</td>
                 <td>프런티어학부대학</td>
-                <td>
-                    <button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button>
-                </td>
-
+                <td><button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
                 <td>GED1010-001</td>
-
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L49zhekJu5IN52BD75b3qtTTZ%2fMnkEBpHw%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">오래된 미래 :
-                        동양고전에서의 인간다움
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L49zhekJu5IN52BD75b3qtTTZ%2fMnkEBpHw%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">오래된 미래 : 동양고전에서의 인간다움</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>셀9(웹강의)</td>
                 <td>윤인현</td>
                 <td>프런티어학부대학</td>
-                <td>
-                    <button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button>
-                </td>
-
+                <td><button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
                 <td>GED1012-001</td>
-
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L9grI%2fxK32BK%2bzi5GIpAfOBpfKcp6YNCNg%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">4차 산업혁명 시대의
-                        리더쉽
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L9grI%2fxK32BK%2bzi5GIpAfOBpfKcp6YNCNg%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">4차 산업혁명 시대의 리더쉽</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>화4,5,6,수4,5,6(60주년-012)</td>
                 <td>유정민</td>
                 <td>프런티어학부대학</td>
-                <td>
-                    <button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button>
-                </td>
-
-
+                <td><button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
                 <td>GED1014-001</td>
-
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L5EGjy%2bzC89wdsBvRY4DBkVlw1qYPLgvpQ%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">인공지능 시대의 사랑,
-                        행복, 정의
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L5EGjy%2bzC89wdsBvRY4DBkVlw1qYPLgvpQ%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">인공지능 시대의 사랑, 행복, 정의</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>화4,5,6(60주년-701) /목4,5,6(60주년-804)</td>
                 <td>정연재</td>
                 <td>프런티어학부대학</td>
-                <td>
-                    <button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button>
-                </td>
-
+                <td><button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button></td>
             </tr>
             <tr>
                 <td>2024-2</td>
                 <td>GED1015-001</td>
-
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L5EGjy%2bzC89wdsBvRY4DBkVlw1qYPLgvpQ%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">ESG와 사회적 가치
-                        실현
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L5EGjy%2bzC89wdsBvRY4DBkVlw1qYPLgvpQ%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">ESG와 사회적 가치 실현</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>화13,14,15,16,17,18(60주년-609)</td>
                 <td>유정민</td>
                 <td>프런티어학부대학</td>
-                <td>
-                    <button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button>
-                </td>
-
+                <td><button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button></td>
             </tr>
-
             <tr>
                 <td>2024-2</td>
                 <td>GED1016-001</td>
-
-                <td>
-                    <a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L5EGjy%2bzC89wdsBvRY4DBkVlw1qYPLgvpQ%3d%3d"
-                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">윤리적 리더쉽
-                    </a>
-                </td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMCvu8QQLGA7L5EGjy%2bzC89wdsBvRY4DBkVlw1qYPLgvpQ%3d%3d"
+                        onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">윤리적 리더쉽</a></td>
                 <td>3.0</td>
-                <td>교양선택</td>
+                <td>핵심교양</td>
                 <td>월13,14,15,수13,14,15(60주년-804)</td>
                 <td>이승엽</td>
                 <td>프런티어학부대학</td>
-                <td>
-                    <button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button>
-                </td>
+                <td><button data-times=" [33,35,42]" onclick="tmpSubject(this);">추가</button></td>
             </tr>
         </tbody>
     </table>
 
+    <div class="selection-container">
+        
 
-
+        
+        
+    </div>
 </body>
 
 </html>
