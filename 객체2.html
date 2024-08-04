@@ -1,117 +1,183 @@
 <!doctype html>
-<html>
+<html lang="ko">
+
 <head>
-  <title>WEB1 - Welcome</title>
-  <meta charset="utf-8">
-  <script src="script.js"></script>
-  <style>
-    .thead{
-        background-color: blue;
-        color:white;
+    <meta charset="utf-8">
+    <title>WEB1 - Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('inhapo.jpg'); /* 배경 이미지 경로 */
+            background-size: cover; /* 이미지를 화면 크기에 맞게 조정 */
+            background-position: center; /* 이미지를 가운데에 위치 */
+            background-repeat: no-repeat; /* 이미지 반복 없음 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    }
-  </style>
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.541); /* 흰색 반투명 배경 */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header img {
+            width: 100px;
+            height: auto;
+        }
+
+        .timetable {
+            width: 80%;
+            max-width: 1200px; /* 최대 너비를 더 크게 설정 */
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9); /* 표를 살짝 투명하게 만듦 */
+            margin-bottom: 20px; /* 하단 여백 추가 */
+        }
+
+        .timetable thead {
+            background-color: #1E90FF;
+            color: #fff;
+        }
+
+        .timetable th,
+        .timetable td {
+            padding: 15px; /* 셀 패딩을 더 크게 설정 */
+            text-align: left;
+            font-size: 16px; /* 글자 크기 증가 */
+        }
+
+        .timetable th {
+            text-transform: uppercase;
+        }
+
+        .timetable tbody tr:nth-child(even) {
+            background-color: rgba(245, 245, 245, 0.9); /* 짝수 행의 배경색을 살짝 투명하게 설정 */
+        }
+
+        .timetable tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.9); /* 홀수 행의 배경색을 살짝 투명하게 설정 */
+        }
+
+        .timetable tbody tr:hover {
+            background-color: rgba(230, 230, 230, 0.9); /* 마우스 오버 시 배경색 변경 */
+        }
+
+        .timetable a {
+            color: #1E90FF;
+            text-decoration: none;
+        }
+
+        .timetable a:hover {
+            text-decoration: underline;
+        }
+
+        .timetable button {
+            padding: 10px 20px; /* 버튼 크기 증가 */
+            background-color: #1E90FF;
+            border: none;
+            border-radius: 5px; /* 버튼 모서리를 둥글게 설정 */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .timetable button:hover {
+            background-color: #1C86EE;
+        }
+    </style>
+    <script src="script.js"></script>
 </head>
+
 <body>
-    <div class="blue">
-        <table class="timetable" id="mytable" border="1">
-            <div class="red">
-                <thead>
-                    <tr>
-                        <th>년도학기 </th>
-                        <th>학수번호 </th>
-            
-                        <th>교과목명 </th>
-                        <th>학점</th>
-                        <th>과목구분</th>
-                        <th>시간 및 강의실</th>
-                        <th>교수명 </th>
-                        <th>개설전공</th>
-                        <th>장바구니</th>
-                    </tr>
-                </thead>
-            </div>
-            <tbody>
-        
-      
-                <tr>
-                    <td>2024-2</td>
-                    <td>CSE1103-001</td>
-                    <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRmLDAs%2fHceT%2f04pj2y%2bAzg7P9VSilvU%2bjA%3d%3d">객체지향프로그래밍2</a></td>
-                    <td>3.0</td>
-                    <td>전공필수</td>
-                    <td>화4,5,6,7(하-120) /수9,10,11,12(하-322)</td>
-                    <td>한경숙</td>
-                    <td>컴퓨터공학</td>
-                    <td><button onclick="tmpSubject(this);">
-                            추가</button></td>
-
-                </tr>
-                <tr>
-                    <td>2024-2</td>
-                    <td>CSE1103-002</td>
-                    <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRhx3Cdy73JEtvt9ZzFRW%2bUk1Y3SGr6FqzA%3d%3d">객체지향프로그래밍2</a></td>
-                    <td>3.0</td>
-                    <td>전공필수</td>
-                    <td>화9,10,11,12(하-120) /수13,14,15,16(하-322)</td>
-                    <td>한경숙</td>
-                    <td>컴퓨터공학</td>
-                    <td><button onclick="tmpSubject(this);">
-                            추가</button></td>
-
-                </tr>
-                <tr>
-                    <td>2024-2</td>
-                    <td>CSE1103-003</td>
-                    <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRhNbm9KafBBt3d25ZedLU0SdIqkCNTUHoA%3d%3d">객체지향프로그래밍2</a></td>
-                    <td>3.0</td>
-                    <td>전공필수</td>
-                    <td>수1,2,3,4,금1,2,3,4(하-324)</td>
-                    <td>이연</td>
-                    <td>컴퓨터공학</td>
-                    <td><button onclick="tmpSubject(this);">
-                            추가</button></td>
-
-                </tr>
-                <tr>
-                    <td>2024-2</td>
-                    <td>CSE1103-004</td>
-                    <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRmgKLkKXHieml4MwZn2hm5%2bTmbfuRAhz3A%3d%3d">객체지향프로그래밍2</a></td>
-                    <td>3.0</td>
-                    <td>전공필수</td>
-                    <td>수5,6,7,8,금5,6,7,8(하-324)</td>
-                    <td>이연</td>
-                    <td>컴퓨터공학</td>                
-                    <td><button onclick="tmpSubject(this);">
-                            추가</button></td>
-
-                </tr>
-                <tr>
-                    <td>2024-2</td>
-                    <td>CSE1103-005</td>
-                    <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRqR5QWGW%2bEtUOz64%2fW77n8Iyw%2fXTyHN%2f9w%3d%3d">객체지향프로그래밍2</a></td>
-                    <td>3.0</td>
-                    <td>전공필수</td>
-                    <td>화1,2,3,4(하-320) /수1,2,3,4(하-322)</td>
-                    <td>이욱</td>
-                    <td>컴퓨터공학</td>
-                    <td><button onclick="tmpSubject(this);">
-                            추가</button></td>
-                </tr>
-                <tr>
-                    <td>2024-2</td>
-                    <td>CSE1103-006</td>
-                    <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRoRXtgRjEp2SRoAVTt0lOjz56UcUArNhSg%3d%3d">객체지향프로그래밍2</a></td>
-                    <td>3.0</td>
-                    <td>전공필수</td>
-                    <td>화5,6,7,8(하-320) /수5,6,7,8(하-322)</td>
-                    <td>이욱</td>
-                    <td>컴퓨터공학</td>
-                    <td><button onclick="tmpSubject(this);">
-                            추가</button></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="header">
+        <h1>Inha University Timetable</h1>
     </div>
-</body>
-</html>
+
+    <table class="timetable" id="mytable" border="1">
+        <thead>
+            <tr>
+                <th>년도학기</th>
+                <th>학수번호</th>
+                <th>교과목명</th>
+                <th>학점</th>
+                <th>과목구분</th>
+                <th>시간 및 강의실</th>
+                <th>교수명</th>
+                <th>개설전공</th>
+                <th>장바구니</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2024-2</td>
+                <td>CSE1103-001</td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRmLDAs%2fHceT%2f04pj2y%2bAzg7P9VSilvU%2bjA%3d%3d">객체지향프로그래밍2</a></td>
+                <td>3.0</td>
+                <td>전공선택</td>
+                <td>화4,5,6,7(하-120) /수9,10,11,12(하-322)</td>
+                <td>한경숙</td>
+                <td>컴퓨터공학</td>
+                <td><button onclick="tmpSubject(this);">추가</button></td>
+            </tr>
+            <tr>
+                <td>2024-2</td>
+                <td>CSE1103-002</td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRhx3Cdy73JEtvt9ZzFRW%2bUk1Y3SGr6FqzA%3d%3d">객체지향프로그래밍2</a></td>
+                <td>3.0</td>
+                <td>전공선택</td>
+                <td>화9,10,11,12(하-120) /수13,14,15,16(하-322)</td>
+                <td>한경숙</td>
+                <td>컴퓨터공학</td>
+                <td><button onclick="tmpSubject(this);">추가</button></td>
+            </tr>
+            <tr>
+                <td>2024-2</td>
+                <td>CSE1103-003</td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRhNbm9KafBBt3d25ZedLU0SdIqkCNTUHoA%3d%3d">객체지향프로그래밍2</a></td>
+                <td>3.0</td>
+                <td>전공선택</td>
+                <td>수1,2,3,4,금1,2,3,4(하-324)</td>
+                <td>이연</td>
+                <td>컴퓨터공학</td>
+                <td><button onclick="tmpSubject(this);">추가</button></td>
+            </tr>
+            <tr>
+                <td>2024-2</td>
+                <td>CSE1103-004</td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRmgKLkKXHieml4MwZn2hm5%2bTmbfuRAhz3A%3d%3d">객체지향프로그래밍2</a></td>
+                <td>3.0</td>
+                <td>전공선택</td>
+                <td>수5,6,7,8,금5,6,7,8(하-324)</td>
+                <td>이연</td>
+                <td>컴퓨터공학</td>
+                <td><button onclick="tmpSubject(this);">추가</button></td>
+            </tr>
+            <tr>
+                <td>2024-2</td>
+                <td>CSE1103-005</td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRqR5QWGW%2bEtUOz64%2fW77n8Iyw%2fXTyHN%2f9w%3d%3d">객체지향프로그래밍2</a></td>
+                <td>3.0</td>
+                
+                <td>전공선택</td>
+                <td>화1,2,3,4(하-320) /수1,2,3,4(하-322)</td>
+                <td>이욱</td>
+                <td>컴퓨터공학</td>
+                <td><button onclick="tmpSubject(this);">추가</button></td>
+            </tr>
+            <tr>
+                <td>2024-2</td>
+                <td><a href="https://sugang.inha.ac.kr/STD/SU_65002/LecPlan_Rpt.aspx?Value=fFOJaVJrBMAbVkrIFfpkRoRXtgRjEp2SRoAVTt0lOjz56UcUArNhSg%3d%3d">객체지향프로그래밍2</a></td>
+                <td>3.0</td>
+                <td>전공선택</td>
+                <td>화5,6,7,8(하-320) 수5,6,7,8(하-322)</td>
+                <td>이욱</td>
+                <td>컴퓨터공학</td>
+                <td><button onclick="tmpSubject(this);">추가</button></td>
+            </tr>
+                
+            
