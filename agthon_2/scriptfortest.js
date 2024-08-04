@@ -25,13 +25,16 @@ function gotoSite() {
     var langSelect = document.getElementById("good").value;
 
     if (temp == "a" && langSelect == "23학번") {
-        location.href = "https://cse.inha.ac.kr/cse/12746/subview.do";
+        var openNewWindow = window.open("about:blank" ,target="_blank");
+        openNewWindow.location.href ="gridtest2.html";
     }
     else if (temp == "a" && langSelect == "22학번") {
-        location.href = "https://cse.inha.ac.kr/cse/14996/subview.do";
+        var openNewWindow = window.open("about:blank" ,target="_blank");
+        openNewWindow.location.href = "https://cse.inha.ac.kr/cse/14996/subview.do";
     }
     else if (temp == "a" && langSelect == "24학번") {
-        location.href = "gridtest.html";
+        var openNewWindow = window.open("about:blank" ,target="_blank");
+        openNewWindow.location.href = "gridtest.html";
     }
     else if (temp == "b" && langSelect == "24학번") {
         location.href = "https://cse.inha.ac.kr/cse/14996/subview.do";
