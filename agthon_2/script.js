@@ -45,8 +45,9 @@ function resetThis(e) {
         index++;
     }
     for (let i = 0; i < tmpSubjectArrValue[index].value.length; i++) {
-        for (let j = 0; j < tmpSubjectArrValue[index].value[i].length; j++)
+        for (let j = 0; j < tmpSubjectArrValue[index].value[i].length; j++) {
             p[tmpSubjectArrValue[index].value[i][j]].style.backgroundColor = "";
+        }
     }
 
     let removeThis = e.parentNode.parentNode;
