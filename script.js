@@ -189,7 +189,7 @@ function displayCartSubjects() {
         row.appendChild(timeCell);
         row.appendChild(buttonCell);
         cartTableBody.appendChild(row);
-        buttonCell.innerHTML = '<button onclick="' + "resetThis(this);updateResult();" + '">제거</button>'
+        buttonCell.innerHTML = '<button title="삭제" onclick="' + "resetThis(this);updateResult();" + '">제거</button>'
 
         row.style.backgroundColor = subject.color;
     });

@@ -1,0 +1,49 @@
+div.shortcuts {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.selectsub {
+    float: right;
+}
+
+div.shortcuts select {
+    width: 190px;
+    margin-right: 5px;
+    padding: 0px 0px 0px 5px;
+    line-height: 32px;
+    height: 32px;
+    font-size: 0.875em;
+    font-weight: normal;
+    border: 1px solid #8b8d90;
+    color: #666;
+    float: left;
+}
+
+div.shortcuts a {
+    background: #446ec6;
+    color: #fff;
+    font-size: 0.9em;
+    padding: 0px 7px;
+    font-weight: bold;
+    text-decoration-line: none;
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+    float: right;
+}
+
+div.shortcuts a:hover {
+    background: #35518b;
+}
+
+.blind {
+    position: absolute;
+    overflow: hidden;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+}

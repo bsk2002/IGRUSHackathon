@@ -19,278 +19,284 @@
         <h1>Inha University Course Registration</h1>
     </div>
     <div class="container">
-        <div class="menu">
-            <div class="test">
-                <h3>이수체계도 조회</h3>
-                <div class="select-container">
-                    <select id="bad">
-                        <optgroup label="공과대학">
-                            <option>학과를 선택해주세요</option>
-                            <option value="a">컴퓨터공학과</option>
-                            <option value="b">정보통신공학과</option>
-                            <option value="c">전자공학과</option>
-                        </optgroup>
-                    </select>
-                    <select id="good">
-                        <option>학번을 선택해주세요</option>
-                        <option>22학번</option>
-                        <option>23학번</option>
-                        <option>24학번</option>
-                    </select>
-                    <button onclick="gotoSite()">조회</button>
+        <div class="left-menu">
+            <div class="menu">
+                <div class="test">
+                    <h3>이수체계도 조회</h3>
+                    <div class="select-container">
+                        <select id="bad">
+                            <optgroup label="공과대학">
+                                <option>학과를 선택해주세요</option>
+                                <option value="a">컴퓨터공학과</option>
+                                <option value="b">정보통신공학과</option>
+                                <option value="c">전자공학과</option>
+                            </optgroup>
+                        </select>
+                        <select id="good">
+                            <option>학번을 선택해주세요</option>
+                            <option>22학번</option>
+                            <option>23학번</option>
+                            <option>24학번</option>
+                        </select>
+                        <button onclick="gotoSite()">조회</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-timetable-container">
+                <div class="cart-container">
+                    <h3>장바구니에 추가된 과목들</h3>
+                    <button onclick="updateCartTable(); changeColor(); updateResult();">장바구니 새로고침</button>
+                    <button onclick="reset();updateCartTable()">전체삭제</button>
+                    <table id="cartTable">
+                        <thead>
+                            <tr>
+                                <th class="time">년도학기</th>
+                                <th>학수번호</th>
+                                <th>교과목명</th>
+                                <th class="val">학점</th>
+                                <th class="time">과목구분</th>
+                                <th class="name">교수명</th>
+                                <th>시간 및 강의실</th>
+                                <th class="del">제거</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody">
+                            <!-- 장바구니 과목 리스트 -->
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <span id="sum"></span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="cart-timetable-container">
-            <div class="cart-container">
-                <h3>장바구니에 추가된 과목들</h3>
-                <button onclick="updateCartTable(); changeColor(); updateResult();">장바구니 새로고침</button>
-                <button onclick="reset();updateCartTable()">전체삭제</button>
-                <table id="cartTable">
-                    <thead>
-                        <tr>
-                            <th>년도학기</th>
-                            <th>학수번호</th>
-                            <th>교과목명</th>
-                            <th>학점</th>
-                            <th>과목구분</th>
-                            <th>교수명</th>
-                            <th>시간 및 강의실</th>
-                            <th>제거</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cartTableBody">
-                        <!-- 장바구니 과목 리스트 -->
-                    </tbody>
-                </table>
-            </div>
-            <div class="timetable-block">
-                <h3>시간표</h3>
-                <table class="timetable" id="mytable">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>월</th>
-                            <th>화</th>
-                            <th>수</th>
-                            <th>목</th>
-                            <th>금</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th rowspan="2">9시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">10시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">11시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">12시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">13시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">14시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">15시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">16시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">17시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">18시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">19시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">20시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">21시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th rowspan="2">22시</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="timetable-block">
+            <h3>시간표</h3>
+            <table class="timetable" id="mytable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th rowspan="2">9시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">10시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">11시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">12시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">13시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">14시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">15시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">16시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">17시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">18시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">19시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">20시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">21시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">22시</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
