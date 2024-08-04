@@ -4,11 +4,42 @@
     font-weight: 400;
     font-style: normal;
 
-    padding: 0px;
     margin: 0px;
+    padding: 0px;
 }
 
-.timetable-block .liberal-arts {
+.logo {
+    width: 1280px;
+    height: 68px;
+}
+
+.test {
+    margin-bottom: 34px;
+}
+
+.test>h3 {
+    margin-top: 34px;
+}
+
+.container {
+    width: 1280px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.timetable-block {
+    width: 600px;
+    height: 780px;
+    float: right;
+}
+
+.menu {
+    width: 600px;
+    height: 820px;
+    float: left;
+}
+
+.liberal-arts {
     float: left;
 }
 
@@ -16,6 +47,8 @@
 #cartTable {
     border-collapse: collapse;
     border: 0px solid gray;
+    padding: 3px;
+    height: 100%;
 }
 
 .timetable>tbody>tr>th:first-child {
@@ -24,10 +57,8 @@
 
 .timetable>tbody>tr>td {
     width: 150px;
-    height: 30px;
 }
 
-.liberal-arts>h4,
 .liberal-arts>ul {
     margin: 0px;
 }
