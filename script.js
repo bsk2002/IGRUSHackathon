@@ -1,5 +1,7 @@
 let week = ["월", "화", "수", "목", "금"];
-let colors = ["#167288", "#8cdaec", "#b45248", "#d48c84", "#a89a49", "#d6cfa2", "#3cb464", "#9bddb1", "#643c6a", "#836394"];
+let colors = ["#F0EAD6", "#B0C4DE", "#AFEEEE", "#E6E6FA", "#FFFACD", "#FFE4E1", "#D3D3D3", "#F5DEB3", "#D8BFD8", "#E0FFFF"];
+
+
 function getRandomColor() {
     let tmpSubjectArrValue = JSON.parse(localStorage.getItem("tmpSubjectArrValue")) || [];
 
@@ -43,7 +45,7 @@ function resetThis(e) {
 
     let tmpSubjectArrValue = JSON.parse(localStorage.getItem("tmpSubjectArrValue")) || [];
     let tmpElement = e.parentNode.parentNode;
-    let nameThis = tmpElement.getElementsByTagName("td")[2].innerText;
+    let nameThis = tmpElement.getElementsByTagName("td")[2].innerHTML;
     let index = 0;
     while (true) {
         if (tmpSubjectArrValue[index].name === nameThis) {
@@ -72,7 +74,7 @@ function tmpSubject(e) {
     let year = childList[0].innerText;
     let subjectNum = childList[1].innerText;
     let professor = childList[6].innerText;
-    let subjectName = childList[2].getElementsByTagName("a")[0].innerText;
+    let subjectName = childList[2].innerHTML;
     let point = childList[3].innerText;
     let major = childList[4].innerText;
     let daystr = childList[5].innerText;
@@ -175,7 +177,7 @@ function displayCartSubjects() {
         yearCell.textContent = subject.subYear;
         numCell.textContent = subject.num;
         profCell.textContent = subject.prof;
-        nameCell.textContent = subject.name;
+        nameCell.innerHTML = subject.name;
         timeCell.textContent = subject.valuestr;
         majorCell.textContent = subject.major;
         pointCell.textContent = subject.point;

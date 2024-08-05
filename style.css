@@ -39,7 +39,7 @@ body {
 }
 
 h3 {
-    color: #1E90FF;
+    color: #0056a1;
     margin-bottom: 10px;
 }
 
@@ -53,7 +53,7 @@ select,
 button {
     padding: 10px;
     margin: 10px;
-    border: 1px solid #1E90FF;
+    border: 1px solid #87CEEB;
     border-radius: 5px;
     font-size: 16px;
 }
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-    background-color: #1E90FF;
+    background-color: #87CEEB;
 }
 
 table {
@@ -162,6 +162,12 @@ button {
     width: 45px;
 }
 
+#cartTableBody>tr>td>a {
+    padding: 5px;
+    text-decoration-line: none;
+    color: #0056a1;
+}
+
 #cartTableBody>tr>td {
     padding: 5px;
 }
@@ -173,6 +179,6 @@ button {
 #cartTableBody>tr>td>button {
     border: none;
     margin: 3px;
-    background-color: #ccc;
+    background-color: #f2f2f2;
     border: 1px solid;
 }

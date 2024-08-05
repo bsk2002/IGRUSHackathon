@@ -7,6 +7,10 @@ div.shortcuts {
     float: right;
 }
 
+img {
+    max-width: 900px;
+}
+
 div.shortcuts select {
     font-family: 'Noto Sans KR', sans-serif;
     width: 190px;
